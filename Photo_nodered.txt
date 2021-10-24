@@ -1,0 +1,163 @@
+[
+    {
+        "id": "0ae1dc00b083da75",
+        "type": "tab",
+        "label": "플로우 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d13930d4bb7ad5dc",
+        "type": "serial in",
+        "z": "0ae1dc00b083da75",
+        "name": "",
+        "serial": "a8f194cbc30f17a1",
+        "x": 180,
+        "y": 180,
+        "wires": [
+            [
+                "52ed9e77cd232453"
+            ]
+        ]
+    },
+    {
+        "id": "52ed9e77cd232453",
+        "type": "function",
+        "z": "0ae1dc00b083da75",
+        "name": "",
+        "func": "var output = msg.payload.split(\",\");\nvar photo = parseFloat(output[0]);\nvar msg = {payload:photo};\nreturn [msg];",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 180,
+        "wires": [
+            [
+                "d9b4db166954a460",
+                "4099719206a488bb"
+            ]
+        ]
+    },
+    {
+        "id": "d9b4db166954a460",
+        "type": "ui_gauge",
+        "z": "0ae1dc00b083da75",
+        "name": "",
+        "group": "2d09849839890a68",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "30000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 570,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "4099719206a488bb",
+        "type": "ui_chart",
+        "z": "0ae1dc00b083da75",
+        "name": "",
+        "group": "c8109061696172f2",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 570,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a8f194cbc30f17a1",
+        "type": "serial-port",
+        "serialport": "COM11",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "2d09849839890a68",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "ece92653ebb62c91",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c8109061696172f2",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "ece92653ebb62c91",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ece92653ebb62c91",
+        "type": "ui_tab",
+        "name": "Tab 1",
+        "icon": "dashboard",
+        "order": 1
+    }
+]
